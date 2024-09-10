@@ -27,7 +27,7 @@ function App() {
     const getWeather = (e:React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setLoading(true);
-        fetch(`https://api.weatherapi.com/v1/current.json?key=xxyyzz&q=${city}&aqi=no`)
+        fetch(`https://api.weatherapi.com/v1/current.json?key=6599ae228ca54ad1b2a74932241009&q=${city}&aqi=no`)
         .then(res => res.json())
         .then(data => {
           setResults({
@@ -40,7 +40,7 @@ function App() {
         setCity("");
         setLoading(false);
       })
-      //.catch(err => alert("エラーが発生しました。ページをリロードして、もう一度トライしてください。"))//
+      .catch(err => alert("エラーが発生しました。ページをリロードして、もう一度トライしてください。"))
   }
   return (
     <div className="wrapper">
