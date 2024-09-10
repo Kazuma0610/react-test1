@@ -1,18 +1,18 @@
 //  Form.tsx
 type FromPropsType = {
+    city : string;
     setCity : React.Dispatch<React.SetStateAction<string>>;
-    getWeather : (e: any) => void;
+    getWeather : (e: React.FormEvent<HTMLFormElement>) => void;
 }
 
 
 
-const Form = (props : FromPropsType) => {
-    
+const Form = ({ city, setCity, getWeather } : FromPropsType) => {
     return(
-        <form>
+        <form onSubmit={getWeather}>
             <input type="text" name="city" placeholder="都市名"
-            onChange={e => props.setCity(e.target.value)}/> 
-            <button type="submit" onClick={props.getWeather}>Get Weather</button>
+            onChange={e => setCity(e.target.value)} value={city} /> 
+            <button type="submit">Get Weather</button>
         </form>
     );
 };
